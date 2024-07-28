@@ -4,7 +4,7 @@ param(
 )
 
 $DataRoot = "${PSScriptRoot}/../data/${Project}"
-$MetadataPath = "${PSScriptRoot}/../config/${Project}/metadata.json"
+$MetadataPath = "${PSScriptRoot}/../config/${Project}.json"
 
 if (-not (Test-Path $MetadataPath)) {
   echo "Could not find ${MetadataPath}"
