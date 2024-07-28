@@ -91,7 +91,6 @@ function Normalize-Body {
 
     if ($State -eq $InPreamble) {
       if ($Line -ne "") {
-        Write-Host "Skipping line: '${Line}'"
         continue;
       }
       $State = $ChompingSeparators;
