@@ -77,7 +77,7 @@ function Normalize-Body {
 
   $Body = $Body.Substring($index)
 
-  $Lines = $Body -Split "\n"
+  $Lines = $Body -Split "`n"
   
   $InPreamble = 0;
   $ChompingSeparators = 1;
@@ -111,7 +111,7 @@ function Normalize-Body {
     $FilteredLines += $Line;
   }
 
-  return $FilteredLines -join '\n';
+  return $FilteredLines -join "`n";
 }
 
 $githubReleases = Invoke-RestMethod -uri "https://api.github.com/repos/${Project}/releases"
