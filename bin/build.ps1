@@ -134,13 +134,6 @@ foreach($gh in $githubReleases) {
   }
 }
 
-if ($liveChannel.releases.Count -gt 1) {
-  $liveChannel.releases = @($liveChannel.releases[0])
-}
-if ($testChannel.releases.Count -gt 1) {
-  $testChannel.releases = @($testChannel.releases[0])
-}
-
 if (-not (Test-Path $DataRoot)) {
   New-Item -ItemType Directory $DataRoot
 }
