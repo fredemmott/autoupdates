@@ -1,0 +1,48 @@
+name: Build Updater (Vicius)
+on:
+  pull_request:
+    paths:
+      - "vicius/**"
+      - ".github/workflows/vicius.yml"
+  push:
+    paths:
+      - "vicius/**"
+      - ".github/workflows/vicus.yml"
+jobs:
+  build:
+    name: ${{matrix.build-type}}
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install upx
+        run: choco install upx
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+      - name: Checkout vcpkg
+        uses: actions/checkout@v4
+        with:
+          repository: microsoft/vcpkg
+          path: vcpkg
+      - name: Install vcpkg
+        working-directory: vcpkg
+        run: |
+          scripts/bootstrap.ps1
+          vcpkg integrate install
+      - name: Make build directory
+        run: cmake -E make_directory vicius/build
+      - name: Configure
+        working-directory: vicius/build
+        id: configure
+        run: cmake ..
+      - name: Compile
+        working-directory: vicius/build
+        run: cmake --build . --parallel --config ${{matrix.build-type}} --verbose
+      - name: Upload Executable Artifacts
+        uses: actions/upload-artifact@v4
+        if: ${{ matrix.build-type == 'Release' }}
+        with:
+          name: "Updater"
+          path: vicius/build/Updater-Release.exe
+    strategy:
+      matrix:
+        build-type: [Release, Debug]
