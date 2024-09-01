@@ -8,7 +8,7 @@ set(VERSION_SUFFIX "+fredemmott1")
 # - terminate-process-on-update
 # - local-version
 # - version-suffix
-set(VICIUS_COMMIT 70400535bc0cf4f321f55700842eb61fff2e5224)
+set(VICIUS_COMMIT ac87be7cecd80193a8b02f991da1178c620feb0b)
 # v2.5.0
 set(VPATCH_COMMIT dd9a1de155a395c4964787948103a480a724e676)
 
