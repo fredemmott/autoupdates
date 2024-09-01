@@ -53,13 +53,14 @@ ExternalProject_Add(
   DEPENDS vpatch
   BUILD_IN_SOURCE ON
   EXCLUDE_FROM_ALL ON
-  CONFIGURE_COMMAND
+  PATCH_COMMAND
   "${vpatch_SOURCE_DIR}/bin/net8.0/vpatch.exe"
   --stamp-version "${UPSTREAM_VERSION}.0"
   --stamp-version-string "${UPSTREAM_VERSION}${VERSION_SUFFIX}"
   --resource.file-version
   --resource.product-version
   --target-file "<SOURCE_DIR>/src/vīcĭus.rc"
+  CONFIGURE_COMMAND ""
   BUILD_COMMAND
   "${MSBUILD}" "vīcĭus.sln" "/p:Configuration=$<CONFIG>" "/p:Platform=x64" "/p:IncludePath=${TWEAK_INCLUDE_DIR}"
   INSTALL_COMMAND ""
