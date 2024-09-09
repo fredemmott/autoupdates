@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.28..3.29.5 FATAL_ERROR)
 
 set(UPSTREAM_VERSION 1.7.813)
-set(VERSION_SUFFIX "+fredemmott.2")
+set(VERSION_SUFFIX "+fredemmott.3")
 
 # Somewhat after v1.7.813; adds support for:
 # - zip files
 # - terminate-process-on-update
 # - local-version
 # - version-suffix
-set(VICIUS_COMMIT 6b21e2ffc77cdc0572ef16c1e319134da599eb0c)
+set(VICIUS_COMMIT 80901894c67dfd3917ab9c428a1a79da3ed0bbfe)
 # v2.5.0
 set(VPATCH_COMMIT dd9a1de155a395c4964787948103a480a724e676)
 
