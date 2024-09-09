@@ -1,7 +1,8 @@
 ﻿{
     "shared":  {
-                   "windowTitle":  "OpenXR API Layers GUI Update",
-                   "productName":  "OpenXR API Layers GUI"
+                   "runAsTemporaryCopy":  true,
+                   "productName":  "OpenXR API Layers GUI",
+                   "windowTitle":  "OpenXR API Layers GUI Update"
                },
     "releases":  [
                      {

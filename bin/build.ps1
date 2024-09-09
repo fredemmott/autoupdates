@@ -17,6 +17,7 @@ $liveChannel = @{
   shared = @{
     productName = $Metadata.productName;
     windowTitle = "$($Metadata.productName) Update";
+    runAsTemporaryCopy = $true;
   };
   releases = @();
 };
