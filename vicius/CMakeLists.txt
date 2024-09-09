@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.28..3.29.5 FATAL_ERROR)
 
 set(UPSTREAM_VERSION 1.7.813)
-set(VERSION_SUFFIX "+fredemmott1")
+set(VERSION_SUFFIX "+fredemmott.1")
 
 # Somewhat after v1.7.813; adds support for:
 # - zip files
