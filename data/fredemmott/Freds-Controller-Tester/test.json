@@ -1,0 +1,41 @@
+{
+  "shared": {
+    "windowTitle": "Fred's Controller Tester Update",
+    "runAsTemporaryCopy": true,
+    "productName": "Fred's Controller Tester"
+  },
+  "releases": [
+    {
+      "downloadSize": 1628028,
+      "version": "1.0.4",
+      "name": "v1.0.4: App icon",
+      "downloadUrl": "https://github.com/fredemmott/Freds-Controller-Tester/releases/download/v1.0.4/Freds-Controller-Tester-v1.0.4.28.zip",
+      "publishedAt": "2024-03-10T14:34:36Z",
+      "summary": "This release adds an icon."
+    },
+    {
+      "downloadSize": 1586075,
+      "version": "1.0.2",
+      "name": "v1.0.2: controller ordering",
+      "downloadUrl": "https://github.com/fredemmott/Freds-Controller-Tester/releases/download/v1.0.2/Freds-Controller-Tester-v1.0.2.25.zip",
+      "publishedAt": "2024-01-04T17:04:22Z",
+      "summary": "Controllers are now reliably shown in the correct order; this is especially useful when multiple identical controllers are attached."
+    },
+    {
+      "downloadSize": 1586121,
+      "version": "1.0.0",
+      "name": "v1.0.0: DPI scaling",
+      "downloadUrl": "https://github.com/fredemmott/Freds-Controller-Tester/releases/download/v1.0.0/Freds-Controller-Tester-v1.0.0.19.zip",
+      "publishedAt": "2023-12-07T17:25:09Z",
+      "summary": "This release fixes DPI scaling on high-resolution monitors."
+    },
+    {
+      "downloadSize": 1583176,
+      "version": "0.0.1",
+      "name": "v0.0.1: First release!",
+      "downloadUrl": "https://github.com/fredemmott/Freds-Controller-Tester/releases/download/v0.0.1/Freds-Controller-Tester-v0.0.1.11.zip",
+      "publishedAt": "2023-11-08T15:30:30Z",
+      "summary": ""
+    }
+  ]
+}
