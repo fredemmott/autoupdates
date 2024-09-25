@@ -17,12 +17,15 @@ $liveChannel = @{
   shared = @{
     productName = $Metadata.productName;
     windowTitle = "$($Metadata.productName) Update";
-    runAsTemporaryCopy = $true;
   };
   releases = @();
 };
 # Deep copy
 $testChannel = ConvertTo-Json $liveChannel | ConvertFrom-Json
+
+$dispositionOverrides = @{
+  "$($Project -replace '/','_')_Updater.exe" = "CreateIfAbsent";
+};
 
 function Get-Update-Asset {
   param(
@@ -47,6 +50,7 @@ function Get-Update-Asset {
 
   return $null;
 }
+
 
 function Normalize-Version {
   param(
@@ -124,6 +128,7 @@ foreach($gh in $githubReleases) {
     publishedAt = $gh.published_at;
     downloadUrl = $asset.browser_download_url;
     downloadSize = $asset.size;
+    zipExtractFileDispositionOverrides = $dispositionOverrides;
   };
 
   # ALL updates go to test channel
@@ -139,5 +144,5 @@ if (-not (Test-Path $DataRoot)) {
   New-Item -ItemType Directory $DataRoot
 }
 
-ConvertTo-json $liveChannel | Set-Content -Encoding UTF8 "${DataRoot}/live.json"
-ConvertTo-json $testChannel | Set-Content -Encoding UTF8 "${DataRoot}/test.json"
+ConvertTo-json -depth 10 $liveChannel | Set-Content -Encoding UTF8 "${DataRoot}/live.json"
+ConvertTo-json -depth 10 $testChannel | Set-Content -Encoding UTF8 "${DataRoot}/test.json"
