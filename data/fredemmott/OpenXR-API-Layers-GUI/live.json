@@ -1,151 +1,151 @@
-﻿{
-    "releases":  [
-                     {
-                         "version":  "2024.9.25",
-                         "name":  "v2024.09.25: bug fixes, additional ordering changes",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.09.25/OpenXR-API-Layers-GUI-v2024.09.25.184.zip",
-                         "publishedAt":  "2024-09-25T01:28:49Z",
-                         "summary":  "# Changes\n\n- ✨ OpenXR Motion Composition will be positioned below OpenKneeboard, so that OpenKneeboard is anchored to the in-game world/cockpit\n- ✨ XrNeckSafer will be positioned above OpenKneeboard due to compatibility issues\n- 🐛 the app will no longer wait for the autoupdater to finish before launching\n- 🐛 the \u0027outside of program files\u0027 warning now allows 32-bit API layers in 64-bit program files, and 64-bit layers in 32-bit program files\n\n## 32-bit and 64-bit Program Files\n\nThe \u0027outside of program files\u0027 warning is because both program files folders have special windows permissions that allow \u0027sandboxed\u0027 windows apps (e.g. from the Microsoft Store) to access them; these permissions are identical for the 32-bit and 64-bit program files folders, so the problem this warning aims to fix does not exist.\n\nWhile it would arguably be more correct for 32-bit layers to be in 32-bit program files and 64-bit layers to be in 64-bit program files, in reality, several tools contain both 32-bit and 64-bit API layers in a single installer. These usually install both layers and configuration utilities and other supporting files into a single location in one folder - and this is what users expect.",
-                         "downloadSize":  6598613,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2024.9.9",
-                         "name":  "v2024.09.09",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.09.09/OpenXR-API-Layers-GUI-v2024.09.09.161.zip",
-                         "publishedAt":  "2024-09-09T23:30:44Z",
-                         "summary":  "# Changes\n\n- Work around ImGUI-SMFL bug causing unresponsive UI if launched in backgrround\n- Added autoupdater\n- Added dark mode title bar",
-                         "downloadSize":  6574448,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2024.7.18",
-                         "name":  "v2024.07.18",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.07.18/OpenXR-API-Layers-GUI-v2024.07.18.154.zip",
-                         "publishedAt":  "2024-07-18T13:15:35Z",
-                         "summary":  "# Changes\n\n- The `SOFTWARE\\Khronos\\OpenXR\\1\\ApiLayers\\Implicit` registry key is now automatically created if it doesn\u0027t exist (thanks to @Louis-Billot in https://github.com/fredemmott/OpenXR-API-Layers-GUI/pull/10)\n- Replaced \"No warnings.\" with \"No warnings, however most checks were skipped because the layer is disabled.\" in the GUI and reports for disabled layers\n- Reports and the details tab now include API layer OpenXR API version and implementation version\n- Added warning icon to tabs with warnings\n- The \"Save Report\" button is now in the top bar\n- While the tool still supports configuring both 32-bit and 64-bit API layers, the tool itself is now a 64-bit executable; this is because some of the APIs to specifically access 32-bit or 64-bit areas are only supported by Microsoft in 64-bit executables. This means that 64-bit *Windows* is now required",
-                         "downloadSize":  3810763,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2024.6.14",
-                         "name":  "v2024.06.14: bug fixes",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.06.14/OpenXR-API-Layers-GUI-v2024.06.14.137.zip",
-                         "publishedAt":  "2024-06-14T11:29:01Z",
-                         "summary":  "# Changes in v2024.06.14\n\n- The \"installed outside of program files\" warning now understands the difference between 64-bit and 32-bit API layers, and checks \"Program Files\" or \"Program Files (x86)\" as appropriate\n- Registry values that are larger than a DWORD are now handled correctly; these result in the \"not a DWORD\" warning added in v2024.06.13\n- Reduced CPU usage: the tool monitors for registry edits and reloads/rechecks, and was incorrectly thinking the registry had been modified when it had not\n\n# Changes in v2024.06.13\n\n- A warning is now shown if the OpenXR layer registry contains a value that is not a DWORD\n- An unsigned DLL error is no longer shown if there is no DLL\n- Combined the separate Win64/WIn32 HKLM/HKCU executables into a single (32-bit) executable\n- Added \u0027Save Report...\u0027 button for creating a file containing all the information, for sharing with developers\n- Added equivalent `OpenXR-API-Layers-Create-Report.exe`\n- Added version metadata to the exe files",
-                         "downloadSize":  3271540,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2024.6.13",
-                         "name":  "v2024.06.13: check registry value type, reports, unified GUI executable",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.06.13/OpenXR-API-Layers-GUI-v2024.06.13.130.zip",
-                         "publishedAt":  "2024-06-13T22:30:05Z",
-                         "summary":  "# Changes\n\n- A warning is now shown if the OpenXR layer registry contains a value that is not a DWORD\n- An unsigned DLL error is no longer shown if there is no DLL\n- Combined the separate Win64/WIn32 HKLM/HKCU executables into a single (32-bit) executable\n- Added \u0027Save Report...\u0027 button for creating a file containing all the information, for sharing with developers\n- Added equivalent `OpenXR-API-Layers-Create-Report.exe`\n- Added version metadata to the exe files",
-                         "downloadSize":  3261158,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2024.3.13",
-                         "name":  "v2024.03.13: code signature verification",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.03.13/OpenXR-API-Layers-GUI-v2024.3.13.108.zip",
-                         "publishedAt":  "2024-03-13T17:59:54Z",
-                         "summary":  "# Changes\n\nWarnings are now shown for API layer DLLs without a valid signature.",
-                         "downloadSize":  6266181,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2024.1.17",
-                         "name":  "",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.01.17/OpenXR-API-Layers-GUI-v2024.1.17.102.zip",
-                         "publishedAt":  "2024-01-18T13:42:38Z",
-                         "summary":  "# Changes\n\nFixed drag-and-drop which was previously somewhat unreliable.",
-                         "downloadSize":  6260307,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2024.1.5",
-                         "name":  "v2024.01.05: there\u0027s an icon now!",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.01.05/OpenXR-API-Layers-GUI-v2024.1.5.99.zip",
-                         "publishedAt":  "2024-01-06T02:17:32Z",
-                         "summary":  "# Changes\n\nAdded an icon :)",
-                         "downloadSize":  6260376,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2023.12.7",
-                         "name":  "v2023.12.07: better support for high-DPI monitors",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2023.12.07/OpenXR-API-Layers-GUI-v2023.12.7.75.zip",
-                         "publishedAt":  "2023-12-07T19:55:05Z",
-                         "summary":  "# Changes\n\n- scale UI on high-DPI monitors",
-                         "downloadSize":  6096601,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2023.12.2",
-                         "name":  "v2023.12.02: detect duplicate layers, hide some errors for disabled layers",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2023.12.02/OpenXR-API-Layers-GUI-v2023.12.2.69.zip",
-                         "publishedAt":  "2023-12-02T14:16:27Z",
-                         "summary":  "# Changes\n\n- raise an error if multiple copies of the same layer are installed and enabled\n- layer ordering ignores disabled layers\n- the \"outside of program files\" check ignores disabled layers",
-                         "downloadSize":  6090680,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "2023.11.15",
-                         "name":  "v2023.11.15: detect more issues",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2023.11.15/OpenXR-API-Layers-GUI-v2023.11.15.63.zip",
-                         "publishedAt":  "2023-11-15T14:25:43Z",
-                         "summary":  "# Changes\n\n- added detection for ordering issues between OpenXR-Toolkit and Quad-Views-Foveated\n- added detection for ordering issues between OpenXR-Vk-D3D12 and either OpenXR Toolkit or OpenXR-Layer-OBSMirror\n- added detection for conflict between OpenXR-Toolkit and Varjo-Foveated\n- clarified explanations for several errors",
-                         "downloadSize":  6073468,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "0.0.2",
-                         "name":  "v0.0.2: improved drag and drop",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v0.0.2/OpenXR-API-Layers-GUI-v0.0.2.49.zip",
-                         "publishedAt":  "2023-11-03T12:43:27Z",
-                         "summary":  "This version:\n- improves drag and drop behavior\n- adds LICENSE.txt to zip\n- adds sponsor link",
-                         "downloadSize":  6063440,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     },
-                     {
-                         "version":  "0.0.1",
-                         "name":  "v0.0.1: initial release",
-                         "downloadUrl":  "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v0.0.1/OpenXR-API-Layers-GUI-v0.0.1.36.zip",
-                         "publishedAt":  "2023-11-02T19:09:59Z",
-                         "summary":  "",
-                         "downloadSize":  6218001,
-                         "zipExtractFileDispositionOverrides":  {
-                                                                    "fredemmott_OpenXR-API-Layers-GUI_Updater.exe":  "CreateIfAbsent"
-                                                                }
-                     }
-                 ],
-    "shared":  {
-                   "windowTitle":  "OpenXR API Layers GUI Update",
-                   "productName":  "OpenXR API Layers GUI"
-               }
+{
+  "shared": {
+    "productName": "OpenXR API Layers GUI",
+    "windowTitle": "OpenXR API Layers GUI Update"
+  },
+  "releases": [
+    {
+      "summary": "# Changes\n\n- ✨ OpenXR Motion Composition will be positioned below OpenKneeboard, so that OpenKneeboard is anchored to the in-game world/cockpit\n- ✨ XrNeckSafer will be positioned above OpenKneeboard due to compatibility issues\n- 🐛 the app will no longer wait for the autoupdater to finish before launching\n- 🐛 the 'outside of program files' warning now allows 32-bit API layers in 64-bit program files, and 64-bit layers in 32-bit program files\n\n## 32-bit and 64-bit Program Files\n\nThe 'outside of program files' warning is because both program files folders have special windows permissions that allow 'sandboxed' windows apps (e.g. from the Microsoft Store) to access them; these permissions are identical for the 32-bit and 64-bit program files folders, so the problem this warning aims to fix does not exist.\n\nWhile it would arguably be more correct for 32-bit layers to be in 32-bit program files and 64-bit layers to be in 64-bit program files, in reality, several tools contain both 32-bit and 64-bit API layers in a single installer. These usually install both layers and configuration utilities and other supporting files into a single location in one folder - and this is what users expect.",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2024-09-25T01:28:49Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.09.25/OpenXR-API-Layers-GUI-v2024.09.25.184.zip",
+      "version": "2024.9.25",
+      "downloadSize": 6598613,
+      "name": "v2024.09.25: bug fixes, additional ordering changes"
+    },
+    {
+      "summary": "# Changes\n\n- Work around ImGUI-SMFL bug causing unresponsive UI if launched in backgrround\n- Added autoupdater\n- Added dark mode title bar",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2024-09-09T23:30:44Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.09.09/OpenXR-API-Layers-GUI-v2024.09.09.161.zip",
+      "version": "2024.9.9",
+      "downloadSize": 6574448,
+      "name": "v2024.09.09"
+    },
+    {
+      "summary": "# Changes\n\n- The `SOFTWARE\\Khronos\\OpenXR\\1\\ApiLayers\\Implicit` registry key is now automatically created if it doesn't exist (thanks to @Louis-Billot in https://github.com/fredemmott/OpenXR-API-Layers-GUI/pull/10)\n- Replaced \"No warnings.\" with \"No warnings, however most checks were skipped because the layer is disabled.\" in the GUI and reports for disabled layers\n- Reports and the details tab now include API layer OpenXR API version and implementation version\n- Added warning icon to tabs with warnings\n- The \"Save Report\" button is now in the top bar\n- While the tool still supports configuring both 32-bit and 64-bit API layers, the tool itself is now a 64-bit executable; this is because some of the APIs to specifically access 32-bit or 64-bit areas are only supported by Microsoft in 64-bit executables. This means that 64-bit *Windows* is now required",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2024-07-18T13:15:35Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.07.18/OpenXR-API-Layers-GUI-v2024.07.18.154.zip",
+      "version": "2024.7.18",
+      "downloadSize": 3810763,
+      "name": "v2024.07.18"
+    },
+    {
+      "summary": "# Changes in v2024.06.14\n\n- The \"installed outside of program files\" warning now understands the difference between 64-bit and 32-bit API layers, and checks \"Program Files\" or \"Program Files (x86)\" as appropriate\n- Registry values that are larger than a DWORD are now handled correctly; these result in the \"not a DWORD\" warning added in v2024.06.13\n- Reduced CPU usage: the tool monitors for registry edits and reloads/rechecks, and was incorrectly thinking the registry had been modified when it had not\n\n# Changes in v2024.06.13\n\n- A warning is now shown if the OpenXR layer registry contains a value that is not a DWORD\n- An unsigned DLL error is no longer shown if there is no DLL\n- Combined the separate Win64/WIn32 HKLM/HKCU executables into a single (32-bit) executable\n- Added 'Save Report...' button for creating a file containing all the information, for sharing with developers\n- Added equivalent `OpenXR-API-Layers-Create-Report.exe`\n- Added version metadata to the exe files",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2024-06-14T11:29:01Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.06.14/OpenXR-API-Layers-GUI-v2024.06.14.137.zip",
+      "version": "2024.6.14",
+      "downloadSize": 3271540,
+      "name": "v2024.06.14: bug fixes"
+    },
+    {
+      "summary": "# Changes\n\n- A warning is now shown if the OpenXR layer registry contains a value that is not a DWORD\n- An unsigned DLL error is no longer shown if there is no DLL\n- Combined the separate Win64/WIn32 HKLM/HKCU executables into a single (32-bit) executable\n- Added 'Save Report...' button for creating a file containing all the information, for sharing with developers\n- Added equivalent `OpenXR-API-Layers-Create-Report.exe`\n- Added version metadata to the exe files",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2024-06-13T22:30:05Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.06.13/OpenXR-API-Layers-GUI-v2024.06.13.130.zip",
+      "version": "2024.6.13",
+      "downloadSize": 3261158,
+      "name": "v2024.06.13: check registry value type, reports, unified GUI executable"
+    },
+    {
+      "summary": "# Changes\n\nWarnings are now shown for API layer DLLs without a valid signature.",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2024-03-13T17:59:54Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.03.13/OpenXR-API-Layers-GUI-v2024.3.13.108.zip",
+      "version": "2024.3.13",
+      "downloadSize": 6266181,
+      "name": "v2024.03.13: code signature verification"
+    },
+    {
+      "summary": "# Changes\n\nFixed drag-and-drop which was previously somewhat unreliable.",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2024-01-18T13:42:38Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.01.17/OpenXR-API-Layers-GUI-v2024.1.17.102.zip",
+      "version": "2024.1.17",
+      "downloadSize": 6260307,
+      "name": ""
+    },
+    {
+      "summary": "# Changes\n\nAdded an icon :)",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2024-01-06T02:17:32Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2024.01.05/OpenXR-API-Layers-GUI-v2024.1.5.99.zip",
+      "version": "2024.1.5",
+      "downloadSize": 6260376,
+      "name": "v2024.01.05: there's an icon now!"
+    },
+    {
+      "summary": "# Changes\n\n- scale UI on high-DPI monitors",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2023-12-07T19:55:05Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2023.12.07/OpenXR-API-Layers-GUI-v2023.12.7.75.zip",
+      "version": "2023.12.7",
+      "downloadSize": 6096601,
+      "name": "v2023.12.07: better support for high-DPI monitors"
+    },
+    {
+      "summary": "# Changes\n\n- raise an error if multiple copies of the same layer are installed and enabled\n- layer ordering ignores disabled layers\n- the \"outside of program files\" check ignores disabled layers",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2023-12-02T14:16:27Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2023.12.02/OpenXR-API-Layers-GUI-v2023.12.2.69.zip",
+      "version": "2023.12.2",
+      "downloadSize": 6090680,
+      "name": "v2023.12.02: detect duplicate layers, hide some errors for disabled layers"
+    },
+    {
+      "summary": "# Changes\n\n- added detection for ordering issues between OpenXR-Toolkit and Quad-Views-Foveated\n- added detection for ordering issues between OpenXR-Vk-D3D12 and either OpenXR Toolkit or OpenXR-Layer-OBSMirror\n- added detection for conflict between OpenXR-Toolkit and Varjo-Foveated\n- clarified explanations for several errors",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2023-11-15T14:25:43Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v2023.11.15/OpenXR-API-Layers-GUI-v2023.11.15.63.zip",
+      "version": "2023.11.15",
+      "downloadSize": 6073468,
+      "name": "v2023.11.15: detect more issues"
+    },
+    {
+      "summary": "This version:\n- improves drag and drop behavior\n- adds LICENSE.txt to zip\n- adds sponsor link",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2023-11-03T12:43:27Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v0.0.2/OpenXR-API-Layers-GUI-v0.0.2.49.zip",
+      "version": "0.0.2",
+      "downloadSize": 6063440,
+      "name": "v0.0.2: improved drag and drop"
+    },
+    {
+      "summary": "",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_OpenXR-API-Layers-GUI_Updater.exe": "CreateIfAbsent"
+      },
+      "publishedAt": "2023-11-02T19:09:59Z",
+      "downloadUrl": "https://github.com/fredemmott/OpenXR-API-Layers-GUI/releases/download/v0.0.1/OpenXR-API-Layers-GUI-v0.0.1.36.zip",
+      "version": "0.0.1",
+      "downloadSize": 6218001,
+      "name": "v0.0.1: initial release"
+    }
+  ]
 }
