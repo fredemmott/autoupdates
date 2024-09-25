@@ -37,13 +37,13 @@ function Get-Update-Asset {
       continue;
     }
     $lower = $asset.name.ToLower();
-    if ($lower -contains 'debug') {
+    if ($lower -like '*debug*') {
       continue;
     }
-    if ($lower -contains 'symbols') {
+    if ($lower -like '*symbols*') {
       continue;
     }
-  
+
     return $asset;
   }
 
