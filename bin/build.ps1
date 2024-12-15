@@ -141,7 +141,7 @@ foreach($gh in $githubReleases) {
 }
 $dummyRelease = @{
   name = "Placeholder release";
-  version = '0.0.0+aaa_DONOTINSTALL.0';
+  version = '0.0.0+aaaDONOTINSTALL.0';
   summary = "This release does not exist; it is included in this metadata to prevent 'no releases found' errors.";
 };
 if (!$testChannel.releases) {

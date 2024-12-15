@@ -1,13 +1,13 @@
 {
-  "releases": [
-    {
-      "summary": "This release does not exist; it is included in this metadata to prevent 'no releases found' errors.",
-      "version": "0.0.0+aaa_DONOTINSTALL.0",
-      "name": "Placeholder release"
-    }
-  ],
   "shared": {
     "windowTitle": "XRFrameTools Update",
     "productName": "XRFrameTools"
-  }
+  },
+  "releases": [
+    {
+      "summary": "This release does not exist; it is included in this metadata to prevent 'no releases found' errors.",
+      "name": "Placeholder release",
+      "version": "0.0.0+aaaDONOTINSTALL.0"
+    }
+  ]
 }
