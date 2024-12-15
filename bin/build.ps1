@@ -139,6 +139,17 @@ foreach($gh in $githubReleases) {
     $liveChannel.releases += $release;
   }
 }
+$dummyRelease = @{
+  name = "Placeholder release";
+  version = '0.0.0+aaa_DONOTINSTALL.0';
+  summary = "This release does not exist; it is included in this metadata to prevent 'no releases found' errors.";
+};
+if (!$testChannel.releases) {
+  $testChannel.releases += $dummyRelease;
+}
+if (!$liveChannel.releases) {
+  $liveChannel.releases += $dummyRelease;
+}
 
 if (-not (Test-Path $DataRoot)) {
   New-Item -ItemType Directory $DataRoot
