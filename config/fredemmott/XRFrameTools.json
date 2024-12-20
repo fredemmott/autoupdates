@@ -1,21 +1,3 @@
 {
-  "productName": "XRFrameTools",
-  "channelPrefix": "2/",
-  "emergency": {
-    "channelPrefixes": [""],
-    "url": "https://github.com/fredemmott/XRFrameTools/releases/latest"
-  },
-  "shared": {
-    "runAsTemporaryCopy": false,
-    "detectionMethod": "FileVersion",
-    "detection": {
-      "input": "{{regval(view, hive, key, value)}}/bin/XRFrameTools.exe",
-      "data": {
-        "view": "WOW64_64KEY",
-        "hive": "HKLM",
-        "key": "SOFTWARE\\Fred Emmott\\XRFrameTools",
-        "value": "InstallDir"
-      }
-    }
-  }
+  "productName": "XRFrameTools"
 }
