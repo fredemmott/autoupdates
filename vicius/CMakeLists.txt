@@ -1,16 +1,15 @@
 cmake_minimum_required(VERSION 3.28..3.29.5 FATAL_ERROR)
 
-set(UPSTREAM_VERSION 1.7.813)
-set(VERSION_SUFFIX "+fredemmott.3")
+set(UPSTREAM_VERSION 1.8.876)
+set(VERSION_SUFFIX "+fredemmott.1")
 
-# Somewhat after v1.7.813; adds support for:
-# - zip files
-# - terminate-process-on-update
-# - local-version
+# Shortly after v1.8.876
+# - updater will now terminate if the installer attempts to close it
+# - fixed semver parsing of VERSIONINFO resources
 # - version-suffix
-set(VICIUS_COMMIT 80901894c67dfd3917ab9c428a1a79da3ed0bbfe)
-# v2.5.0
-set(VPATCH_COMMIT dd9a1de155a395c4964787948103a480a724e676)
+set(VICIUS_COMMIT 317da9cc752b5b289f47104b02b05c31e13fccae)
+# v2.6.0
+set(VPATCH_COMMIT 52467a3135dc446b5071ba7f272e0af9c8c3d6d6)
 
 project(
   "fredemmott_vicius"
@@ -54,7 +53,8 @@ ExternalProject_Add(
   BUILD_IN_SOURCE ON
   EXCLUDE_FROM_ALL ON
   PATCH_COMMAND
-  "${vpatch_SOURCE_DIR}/bin/net8.0/vpatch.exe"
+  cd "${vpatch_SOURCE_DIR}/src" &&
+  dotnet run --
   --stamp-version "${UPSTREAM_VERSION}.0"
   --stamp-version-string "${UPSTREAM_VERSION}${VERSION_SUFFIX}"
   --resource.file-version
