@@ -62,6 +62,8 @@ ExternalProject_Add(
   --target-file "<SOURCE_DIR>/src/vīcĭus.rc"
   CONFIGURE_COMMAND ""
   BUILD_COMMAND
+  "${CMAKE_COMMAND}" -E chdir src vcpkg install --triplet=x64-windows-static
+  &&
   "${MSBUILD}" "vīcĭus.sln" "/p:Configuration=$<CONFIG>" "/p:Platform=x64" "/p:IncludePath=${TWEAK_INCLUDE_DIR}"
   INSTALL_COMMAND ""
 )
