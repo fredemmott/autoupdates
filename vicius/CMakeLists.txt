@@ -27,6 +27,7 @@ configure_file(
 
 find_program(DOTNET dotnet REQUIRED)
 find_program(MSBUILD msbuild REQUIRED)
+find_program(PWSH pwsh REQUIRED)
 
 include(ExternalProject)
 
@@ -53,6 +54,8 @@ ExternalProject_Add(
   BUILD_IN_SOURCE ON
   EXCLUDE_FROM_ALL ON
   PATCH_COMMAND
+  "${PWSH}" -ExecutionPolicy Bypass "${CMAKE_CURRENT_LIST_DIR}/isolated-vcpkg.ps1"
+  &&
   cd "${vpatch_SOURCE_DIR}/src" &&
   dotnet run --
   --stamp-version "${UPSTREAM_VERSION}.0"
@@ -62,8 +65,6 @@ ExternalProject_Add(
   --target-file "<SOURCE_DIR>/src/vīcĭus.rc"
   CONFIGURE_COMMAND ""
   BUILD_COMMAND
-  "${CMAKE_COMMAND}" -E chdir src vcpkg install --triplet=x64-windows-static
-  &&
   "${MSBUILD}" "vīcĭus.sln" "/p:Configuration=$<CONFIG>" "/p:Platform=x64" "/p:IncludePath=${TWEAK_INCLUDE_DIR}"
   INSTALL_COMMAND ""
 )

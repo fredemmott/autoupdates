@@ -18,16 +18,6 @@ jobs:
         run: choco install upx
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v2
-      - name: Checkout vcpkg
-        uses: actions/checkout@v4
-        with:
-          repository: microsoft/vcpkg
-          path: vcpkg
-      - name: Install vcpkg
-        working-directory: vcpkg
-        run: |
-          scripts/bootstrap.ps1
-          vcpkg integrate install
       - name: Make build directory
         run: cmake -E make_directory vicius/build
       - name: Configure
