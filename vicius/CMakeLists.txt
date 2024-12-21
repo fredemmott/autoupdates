@@ -6,8 +6,8 @@ set(VERSION_SUFFIX "+fredemmott.1")
 # Shortly after v1.8.876
 # - updater will now terminate if the installer attempts to close it
 # - fixed semver parsing of VERSIONINFO resources
-# - version-suffix
-set(VICIUS_COMMIT 317da9cc752b5b289f47104b02b05c31e13fccae)
+# - allow arbitrary channels, including with `/` in them
+set(VICIUS_COMMIT dc72d3626fe20f34931c420ee85c283b4e7e55e7)
 # v2.6.0
 set(VPATCH_COMMIT 52467a3135dc446b5071ba7f272e0af9c8c3d6d6)
 
