@@ -11,21 +11,30 @@ if (-not (Test-Path $MetadataPath)) {
   return;
 }
 
-$Metadata = Get-Content -Raw $MetadataPath | ConvertFrom-Json
+$Metadata = Get-Content -Raw $MetadataPath | ConvertFrom-Json -AsHashtable
 
-$liveChannel = @{
-  shared = @{
-    productName = $Metadata.productName;
-    windowTitle = "$($Metadata.productName) Update";
-  };
-  releases = @();
-};
-# Deep copy
-$testChannel = ConvertTo-Json $liveChannel | ConvertFrom-Json
-
-$dispositionOverrides = @{
+$DispositionOverrides = @{
   "$($Project -replace '/','_')_Updater.exe" = "CreateIfAbsent";
 };
+
+function New-Channel {
+  $ret = @{
+    instance = @{};
+    shared = @{
+      productName = $Metadata.productName;
+      windowTitle = "$($Metadata.productName) Update";
+    };
+    releases = @();
+  };
+  if ($Metadata.shared) {
+    $ret.shared += $Metadata.shared;
+  }
+  if ($Metadata.instance) {
+    $ret.instance += $Metadata.instance;
+  }
+  return $ret;
+}
+
 
 function Get-Update-Asset {
   param(
@@ -118,6 +127,58 @@ function Normalize-Body {
   return $FilteredLines -join "`n";
 }
 
+$DummyRelease = @{
+  name = "Placeholder release";
+  version = '0.0.0+aaaDONOTINSTALL.0';
+  summary = "This release does not exist; it is included in this metadata to prevent 'no releases found' errors.";
+};
+
+function Save-Channels {
+  param(
+    $Prefix,
+    $live,
+    $test
+  )
+
+  if (!$live.releases) {
+    $live.releases += $DummyRelease;
+  }
+  if (!$Test.releases) {
+    $test.releases += $DummyRelease;
+  }
+
+  $LiveJson = "${DataRoot}/${Prefix}live.json"
+  $TestJson = "${DataRoot}/${Prefix}test.json"
+
+  $Parent = Split-Path -parent $LiveJson
+  if (-not (Test-Path $Parent)) {
+    New-Item -ItemType Directory $Parent
+  }
+
+
+  ConvertTo-json -depth 10 $live | Set-Content -Encoding UTF8 $LiveJson
+  ConvertTo-json -depth 10 $test | Set-Content -Encoding UTF8 $TestJson
+}
+
+if ($Metadata.emergency) {
+  $data = New-Channel
+  $data.shared = @{
+    detectionMethod = "FixedVersion";
+    detection = @{
+      version = "0.0.0";
+    };
+  };
+  $data.instance = @{
+    emergencyUrl =  $Metadata.emergency.url;
+  };
+  foreach($prefix in $Metadata.emergency.channelPrefixes) {
+    Save-Channels $prefix $data $data
+  }
+}
+
+$liveChannel = New-Channel
+$testChannel = New-Channel
+
 $githubReleases = Invoke-RestMethod -uri "https://api.github.com/repos/${Project}/releases"
 foreach($gh in $githubReleases) {
   $asset = Get-Update-Asset($gh);
@@ -139,21 +200,5 @@ foreach($gh in $githubReleases) {
     $liveChannel.releases += $release;
   }
 }
-$dummyRelease = @{
-  name = "Placeholder release";
-  version = '0.0.0+aaaDONOTINSTALL.0';
-  summary = "This release does not exist; it is included in this metadata to prevent 'no releases found' errors.";
-};
-if (!$testChannel.releases) {
-  $testChannel.releases += $dummyRelease;
-}
-if (!$liveChannel.releases) {
-  $liveChannel.releases += $dummyRelease;
-}
 
-if (-not (Test-Path $DataRoot)) {
-  New-Item -ItemType Directory $DataRoot
-}
-
-ConvertTo-json -depth 10 $liveChannel | Set-Content -Encoding UTF8 "${DataRoot}/live.json"
-ConvertTo-json -depth 10 $testChannel | Set-Content -Encoding UTF8 "${DataRoot}/test.json"
+Save-Channels $Metadata.channelPrefix $liveChannel $testChannel
