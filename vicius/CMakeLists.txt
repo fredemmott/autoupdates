@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.28..3.29.5 FATAL_ERROR)
 
 set(UPSTREAM_VERSION 1.8.876)
-set(VERSION_SUFFIX "+fredemmott.1")
+set(VERSION_SUFFIX "+fredemmott.2")
 
 # Shortly after v1.8.876
 # - updater will now terminate if the installer attempts to close it
