@@ -1,53 +1,6 @@
 {
-  "releases": [
-    {
-      "name": "v0.2.0: bugfixes",
-      "downloadSize": 31891456,
-      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.2.0/XRFrameTools-v0.2.0.msi",
-      "zipExtractFileDispositionOverrides": {
-        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
-      },
-      "summary": "# What's Changed\n\n- 🐛 Fix CSV export error if the frames for the first row are finished before the log file is created; this is possible on heavily loaded systems, especially when the 'frames per row' setting is low\n- 🐛 Fix occasionally-missing D3D11 metrics, such as GPU time and VRAM, especially on AMD cards\n  - on AMD cards, the performance data sometimes is not available for longer than a single frame interval, and must be retried later\n- ✨ Add the frame 'display time' to the binlogs and CSV; this is an [XrTime](https://registry.khronos.org/OpenXR/specs/1.1/man/html/XrTime.html). This can be useful for correlating with other logs or traces.\n- 📝 Make the API layer descriptions include the name, as SteamVR's API layer list does not show layer names, only descriptions\n- 📈 Live view will now update without waiting for the previous update to be displayed on the monitor",
-      "publishedAt": "2025-04-27T23:02:19Z",
-      "version": "0.2.0"
-    },
-    {
-      "name": "v0.1.0: first round of improvements",
-      "downloadSize": 31850496,
-      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.1.0/XRFrameTools-v0.1.0.msi",
-      "zipExtractFileDispositionOverrides": {
-        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
-      },
-      "summary": "# What's Changed\n\nThis contains the first round of improvements based on your feedback and data; further improvements are still planned.\n- ⬆️ Updated the auto-updater; if this page was opened when you opened an older version of XRFrameTools, this is why - unfortunately the earlier version is not able to suggest or install this update\n- 🚨 The binary log format has changed and is not compatible with earlier versions\n  - ✨ added `Produced by: XRFrameTools vVERSION` line near the top so you can easily see what versions are compatible\n  - 📝 added data required for new features\n- 🩹 Fixed incorrect scaling of FPS axis in live data when there is not a full 30 seconds of data\n- 🩹 Fixed pausing live updates\n- 🩹 Re-enabling live updates now works instantly, instead of taking up to 1 second\n- 🗑️ The first frame is now entirely ignored, as the time since the previous frame is required for meaningful statistics\n- 🚚 Changed the filename extension for logs to `.XRFTBinLog` as some file-sharing tools had issues with the old `.XRFrameToolsBinLog` extension\n\n## Metrics\n\n- 👻 *'Wait CPU'* is now hidden by default, as it is not an optimizable metric.\n- 📈 Split *'Runtime CPU'* into *'Begin CPU'* and *'Submit CPU'*. To decrease *'Submit CPU*', you generally need to lower your graphics settings in the game.\n- 📈 Frame timings are now constrained to fit within the frame interval\n  - in games with a single-threaded render/frame loop, this does not do a difference\n  - in multi-threaded games, it is possible for each frame to take longer than one frame interval to generate\n    - the data shown in previous versions was technically correct, but confusing and misleading\n    - the data shown now is more directly usable\n\nSee [the README](https://github.com/fredemmott/XRFrameTools/blob/main/README.md#what-do-the-numbers-mean) for more details on the meaning of the measurements.\n\n## Usability\n\n- 💄 Replaced the 'live updates' checkbox with separate start-and-stop buttons for improved clarity\n- 📈 Core: copied *Frame Interval* to the timings chart, to make it easier to correlate overall framerate changes with more detailed measurements\n- 📈 D3D11: the VRAM axis limit is now rounded up to the next 5GB\n- 📈 D3D11: the VRAM axis is now labelled in multiples of 1GB\n- 📈 NVAPI:  the P-state axis is now auto-scaled\n- 📈 NVAPI: throttle reason indicators are now doubled in vertical size for improved readability",
-      "publishedAt": "2024-12-21T02:37:59Z",
-      "version": "0.1.0"
-    },
-    {
-      "name": "v0.0.4: first round of improvements",
-      "downloadSize": 5730304,
-      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.0.4/XRFrameTools-v0.0.4.msi",
-      "zipExtractFileDispositionOverrides": {
-        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
-      },
-      "summary": "# What's Changed\n\nThis contains the first round of improvements based on your feedback and data; further improvements are still planned.\n\n- 🚨 The binary log format has changed and is not compatible with earlier versions\n  - ✨ added `Produced by: XRFrameTools vVERSION` line near the top so you can easily see what versions are compatible\n  - 📝 added data required for new features\n- 🩹 Fixed incorrect scaling of FPS axis in live data when there is not a full 30 seconds of data\n- 🩹 Fixed pausing live updates\n- 🩹 Re-enabling live updates now works instantly, instead of taking up to 1 second\n- 🗑️ The first frame is now entirely ignored, as the time since the previous frame is required for meaningful statistics\n- 🚚 Changed the filename extension for logs to `.XRFTBinLog` as some file-sharing tools had issues with the old `.XRFrameToolsBinLog` extension\n\n## Metrics\n\n- 👻 *'Wait CPU'* is now hidden by default, as it is not an optimizable metric.\n- 📈 Split *'Runtime CPU'* into *'Begin CPU'* and *'Submit CPU'*. To decrease *'Submit CPU*', you generally need to lower your graphics settings in the game.\n- 📈 Frame timings are now constrained to fit within the frame interval\n  - in games with a single-threaded render/frame loop, this does not do a difference\n  - in multi-threaded games, it is possible for each frame to take longer than one frame interval to generate\n    - the data shown in previous versions was technically correct, but confusing and misleading\n    - the data shown now is more directly usable\n\nSee [the README](https://github.com/fredemmott/XRFrameTools/blob/main/README.md#what-do-the-numbers-mean) for more details on the meaning of the measurements.\n\n## Usability\n\n- 💄 Replaced the 'live updates' checkbox with separate start-and-stop buttons for improved clarity\n- 📈 Core: copied *Frame Interval* to the timings chart, to make it easier to correlate overall framerate changes with more detailed measurements\n- 📈 D3D11: the VRAM axis limit is now rounded up to the next 5GB\n- 📈 D3D11: the VRAM axis is now labelled in multiples of 1GB\n- 📈 NVAPI:  the P-state axis is now auto-scaled\n- 📈 NVAPI: throttle reason indicators are now doubled in vertical size for improved readability\n",
-      "publishedAt": "2024-12-20T13:51:32Z",
-      "version": "0.0.4"
-    },
-    {
-      "name": "v0.0.2: initial public test",
-      "downloadSize": 5689344,
-      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.0.2/XRFrameTools-v0.0.2.msi",
-      "zipExtractFileDispositionOverrides": {
-        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
-      },
-      "summary": "1. Download `XRFrameTools-v0.0.2.msi` from below\r\n2. Run XRFrameTools from the start menu, your desktop, or start -> run\r\n3. Read [the README](https://github.com/fredemmott/XRFrameTools/blob/main/README.md)\r\n\r\nThis is an initial public test release, supporting:\r\n- Frame rate and interval\r\n- D3D11 render GPU time and VRAM consumption\r\n- Throttling reasons for NVIDIA graphics cards (e.g. thermal limit)\r\n\r\n\r\n<img width=\"1429\" alt=\"screenshot\" src=\"https://github.com/user-attachments/assets/592b2e4d-b3ea-4ecc-b144-fac2b63428c7\" />\r\n",
-      "publishedAt": "2024-12-17T16:32:41Z",
-      "version": "0.0.2"
-    }
-  ],
   "instance": {},
   "shared": {
-    "runAsTemporaryCopy": false,
     "detection": {
       "input": "{{regval(view, hive, key, value)}}/bin/XRFrameTools.exe",
       "data": {
@@ -57,8 +10,66 @@
         "value": "InstallDir"
       }
     },
-    "windowTitle": "XRFrameTools Update",
+    "productName": "XRFrameTools",
+    "runAsTemporaryCopy": false,
     "detectionMethod": "FileVersion",
-    "productName": "XRFrameTools"
-  }
+    "windowTitle": "XRFrameTools Update"
+  },
+  "releases": [
+    {
+      "version": "0.2.2",
+      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.2.2/XRFrameTools-v0.2.2.msi",
+      "name": "v0.2.2: bugfixes and small improvements",
+      "summary": "# What's Changed\n\n- 🐛 Fix game crash if game is using OpenXR but is not using D3D11 (e.g. if it uses D3D12 or Vulkan). Note that some information is only available under D3D11.\n- 🔊 A version identifier is now included in the API layers' OpenXR metadata\n- ✨ The number of frames per CSV row is now saved between restarts",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
+      },
+      "downloadSize": 31895552,
+      "publishedAt": "2025-05-27T12:13:36Z"
+    },
+    {
+      "version": "0.2.0",
+      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.2.0/XRFrameTools-v0.2.0.msi",
+      "name": "v0.2.0: bugfixes",
+      "summary": "# What's Changed\n\n- 🐛 Fix CSV export error if the frames for the first row are finished before the log file is created; this is possible on heavily loaded systems, especially when the 'frames per row' setting is low\n- 🐛 Fix occasionally-missing D3D11 metrics, such as GPU time and VRAM, especially on AMD cards\n- ✨ Add the frame 'display time' to the binlogs and CSV; this is an [XrTime](https://registry.khronos.org/OpenXR/specs/1.1/man/html/XrTime.html). This can be useful for correlating with other logs or traces.\n- 📝 Make the API layer descriptions include the name, as SteamVR's API layer list does not show layer names, only descriptions\n- 📈 Live view will now update without waiting for the previous update to be displayed on the monitor",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
+      },
+      "downloadSize": 31891456,
+      "publishedAt": "2025-04-27T23:02:19Z"
+    },
+    {
+      "version": "0.1.0",
+      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.1.0/XRFrameTools-v0.1.0.msi",
+      "name": "v0.1.0: first round of improvements",
+      "summary": "# What's Changed\n\nThis contains the first round of improvements based on your feedback and data; further improvements are still planned.\n- ⬆️ Updated the auto-updater; if this page was opened when you opened an older version of XRFrameTools, this is why - unfortunately the earlier version is not able to suggest or install this update\n- 🚨 The binary log format has changed and is not compatible with earlier versions\n  - ✨ added `Produced by: XRFrameTools vVERSION` line near the top so you can easily see what versions are compatible\n  - 📝 added data required for new features\n- 🩹 Fixed incorrect scaling of FPS axis in live data when there is not a full 30 seconds of data\n- 🩹 Fixed pausing live updates\n- 🩹 Re-enabling live updates now works instantly, instead of taking up to 1 second\n- 🗑️ The first frame is now entirely ignored, as the time since the previous frame is required for meaningful statistics\n- 🚚 Changed the filename extension for logs to `.XRFTBinLog` as some file-sharing tools had issues with the old `.XRFrameToolsBinLog` extension\n\n## Metrics\n\n- 👻 *'Wait CPU'* is now hidden by default, as it is not an optimizable metric.\n- 📈 Split *'Runtime CPU'* into *'Begin CPU'* and *'Submit CPU'*. To decrease *'Submit CPU*', you generally need to lower your graphics settings in the game.\n- 📈 Frame timings are now constrained to fit within the frame interval\n  - in games with a single-threaded render/frame loop, this does not do a difference\n  - in multi-threaded games, it is possible for each frame to take longer than one frame interval to generate\n    - the data shown in previous versions was technically correct, but confusing and misleading\n    - the data shown now is more directly usable\n\nSee [the README](https://github.com/fredemmott/XRFrameTools/blob/main/README.md#what-do-the-numbers-mean) for more details on the meaning of the measurements.\n\n## Usability\n\n- 💄 Replaced the 'live updates' checkbox with separate start-and-stop buttons for improved clarity\n- 📈 Core: copied *Frame Interval* to the timings chart, to make it easier to correlate overall framerate changes with more detailed measurements\n- 📈 D3D11: the VRAM axis limit is now rounded up to the next 5GB\n- 📈 D3D11: the VRAM axis is now labelled in multiples of 1GB\n- 📈 NVAPI:  the P-state axis is now auto-scaled\n- 📈 NVAPI: throttle reason indicators are now doubled in vertical size for improved readability",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
+      },
+      "downloadSize": 31850496,
+      "publishedAt": "2024-12-21T02:37:59Z"
+    },
+    {
+      "version": "0.0.4",
+      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.0.4/XRFrameTools-v0.0.4.msi",
+      "name": "v0.0.4: first round of improvements",
+      "summary": "# What's Changed\n\nThis contains the first round of improvements based on your feedback and data; further improvements are still planned.\n\n- 🚨 The binary log format has changed and is not compatible with earlier versions\n  - ✨ added `Produced by: XRFrameTools vVERSION` line near the top so you can easily see what versions are compatible\n  - 📝 added data required for new features\n- 🩹 Fixed incorrect scaling of FPS axis in live data when there is not a full 30 seconds of data\n- 🩹 Fixed pausing live updates\n- 🩹 Re-enabling live updates now works instantly, instead of taking up to 1 second\n- 🗑️ The first frame is now entirely ignored, as the time since the previous frame is required for meaningful statistics\n- 🚚 Changed the filename extension for logs to `.XRFTBinLog` as some file-sharing tools had issues with the old `.XRFrameToolsBinLog` extension\n\n## Metrics\n\n- 👻 *'Wait CPU'* is now hidden by default, as it is not an optimizable metric.\n- 📈 Split *'Runtime CPU'* into *'Begin CPU'* and *'Submit CPU'*. To decrease *'Submit CPU*', you generally need to lower your graphics settings in the game.\n- 📈 Frame timings are now constrained to fit within the frame interval\n  - in games with a single-threaded render/frame loop, this does not do a difference\n  - in multi-threaded games, it is possible for each frame to take longer than one frame interval to generate\n    - the data shown in previous versions was technically correct, but confusing and misleading\n    - the data shown now is more directly usable\n\nSee [the README](https://github.com/fredemmott/XRFrameTools/blob/main/README.md#what-do-the-numbers-mean) for more details on the meaning of the measurements.\n\n## Usability\n\n- 💄 Replaced the 'live updates' checkbox with separate start-and-stop buttons for improved clarity\n- 📈 Core: copied *Frame Interval* to the timings chart, to make it easier to correlate overall framerate changes with more detailed measurements\n- 📈 D3D11: the VRAM axis limit is now rounded up to the next 5GB\n- 📈 D3D11: the VRAM axis is now labelled in multiples of 1GB\n- 📈 NVAPI:  the P-state axis is now auto-scaled\n- 📈 NVAPI: throttle reason indicators are now doubled in vertical size for improved readability\n",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
+      },
+      "downloadSize": 5730304,
+      "publishedAt": "2024-12-20T13:51:32Z"
+    },
+    {
+      "version": "0.0.2",
+      "downloadUrl": "https://github.com/fredemmott/XRFrameTools/releases/download/v0.0.2/XRFrameTools-v0.0.2.msi",
+      "name": "v0.0.2: initial public test",
+      "summary": "1. Download `XRFrameTools-v0.0.2.msi` from below\r\n2. Run XRFrameTools from the start menu, your desktop, or start -> run\r\n3. Read [the README](https://github.com/fredemmott/XRFrameTools/blob/main/README.md)\r\n\r\nThis is an initial public test release, supporting:\r\n- Frame rate and interval\r\n- D3D11 render GPU time and VRAM consumption\r\n- Throttling reasons for NVIDIA graphics cards (e.g. thermal limit)\r\n\r\n\r\n<img width=\"1429\" alt=\"screenshot\" src=\"https://github.com/user-attachments/assets/592b2e4d-b3ea-4ecc-b144-fac2b63428c7\" />\r\n",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_XRFrameTools_Updater.exe": "CreateIfAbsent"
+      },
+      "downloadSize": 5689344,
+      "publishedAt": "2024-12-17T16:32:41Z"
+    }
+  ]
 }
