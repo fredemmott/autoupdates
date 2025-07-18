@@ -1,0 +1,108 @@
+{
+  "shared": {
+    "productName": "HTCC",
+    "windowTitle": "HTCC Update",
+    "detectionMethod": "FileVersion",
+    "detection": {
+      "input": "{{regval(view, hive, key, value)}}/HTCCSettings.exe",
+      "data": {
+        "view": "WOW64_64KEY",
+        "hive": "HKLM",
+        "key": "SOFTWARE\\Fred Emmott\\HandTrackedCockpitClicking",
+        "value": "InstallDir"
+      }
+    },
+    "runAsTemporaryCopy": false
+  },
+  "instance": {},
+  "releases": [
+    {
+      "summary": "- added workaround for bug in Meta Link's public test channel (PTC) which would prevent HTCC from detecting that OpenXR hand tracking is available\n- added option to disable hibernate gesture\n- added registry settings adding support for custom 4-button ring devices",
+      "downloadSize": 24174592,
+      "name": "v1.2.0: meta PTC workaround, small enhancements",
+      "publishedAt": "2024-07-27T22:38:11Z",
+      "version": "1.2.0",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.2.0/HTCC-v1.2.0.msi",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      }
+    },
+    {
+      "summary": "",
+      "downloadSize": 22568960,
+      "name": "v1.0.0 - bug fixes, sleep/wake, and ultraleap improvements",
+      "publishedAt": "2023-11-13T15:25:32Z",
+      "version": "1.0.0",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.0.0/HTCC-v1.0.0.msi",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      }
+    },
+    {
+      "summary": "",
+      "downloadSize": 22786048,
+      "name": "v0.2.2: updated FOV calculations for DCS OpenBeta update",
+      "publishedAt": "2023-06-28T14:58:26Z",
+      "version": "0.2.2",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.2/HTCC-v0.2.2.msi",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      }
+    },
+    {
+      "summary": "# Fixed\n\nController emulation now works in DCS when running in native OpenXR mode. Virtual touch screen mode remains recommended.\n\n# Known problems\n\nController aim angles are wrong in DCS when running in native OpenXR mode. This is a DCS bug that has been reported to Eagle Dynamics, and also applies to real controllers.",
+      "downloadSize": 22781952,
+      "name": "v0.2.1: controller emulation support for DCS native OpenXR",
+      "publishedAt": "2023-02-08T12:56:41Z",
+      "version": "0.2.1",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.1/HTCC-v0.2.1.msi",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      }
+    },
+    {
+      "summary": "# Upgrade Notes\n\n- I now recommend tablet/touch screen mode for DCS instead of VR controller mode, to avoid the risk of accidental clicks, especially with switches near a throttle.\n- If you use an Ultraleap, you may need to uninstall and reinstall the Ultraleap driver after installing HTCC\n\nOptional, but recommended:\n\n1. If you have changed settings in regedit, export them (right click -> export in regedit) to a .reg file for reference\n2. Uninstall the old version via add/remove programs\n3. Open regedit and delete everything in `HKEY_LOCAL_MACHINE\\SOFTWARE\\Fred Emmott\\HandTrackedCockpitClicking`\n4. Install the new version\n\n# Changes\n\n- fixed field of view/window calibration for touch screen/tablet mode in DCS\n- increased scroll screed in touch screen/tablet mode\n- added 'HTCC PointCTRL Classic' program: while this is running, a PointCTRL will work like a tablet in DCS, even if OpenComposite isn't being used. This will not work in other games, or with OpenXR hand tracking, and is not needed if you're using OpenComposite. You'll need to run v0.2's PointCTRL calibration app first.\n- virtual controller grip is no longer continuously squeezed in MSFS\n- removed unneeded 'mirror eye' option\n- added registry setting to only track one hand\n- the calibration and settings apps only save modified settings, not all settings",
+      "downloadSize": 22753280,
+      "name": "v0.2.0: improved touch screen/tablet mode, 'PointCTRL Classic', scroll speed",
+      "publishedAt": "2023-01-08T14:24:13Z",
+      "version": "0.2.0",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.0/HTCC-v0.2.0.msi",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      }
+    },
+    {
+      "summary": "This release:\n- makes the installer consistently make sure that HTCC and the ultraleap OpenXR support are loaded in the correct order\n- adds `scripts\\list-openxr-layers.ps1` (a debugging tool)",
+      "downloadSize": 22437888,
+      "name": "v0.1.2: installer improvements for ultraleap",
+      "publishedAt": "2023-01-01T18:18:19Z",
+      "version": "0.1.2",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.2/HTCC-v0.1.2.msi",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      }
+    },
+    {
+      "summary": "- fix compatibility issue with the combination of Ultraleap + WMR, possibly Ultraleap + other headsets too\n- fix hand tracking being unusable for 10s of seconds if the runtime guesses the next frame may be 10s of seconds away (e.g. during DCS loading screens)\n- hand position is now world-locked if it's out of sensor range, but a button is being pressed\n- now takes priority over any VR controllers\n- PointCTRL is now considered inactive if it is *completely* still (out of sensor range, or FCU timeout)\n- vertical offset is removed for DCS",
+      "downloadSize": 22437888,
+      "name": "v0.1.1: ultraleap compatibility improvements, various tweaks and bugfixes",
+      "publishedAt": "2022-12-31T19:57:49Z",
+      "version": "0.1.1",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.1/HTCC-v0.1.1.msi",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      }
+    },
+    {
+      "summary": "# Notes\n\n- You **must** use OpenComposite, even on an Oculus headset\n- Be careful not to accidentally 'touch' controls - just point at them. If this is a problem, switch to 'virtual touchscreen' mode and use a mouse for menus.\n- This is very new. Feedback is welcome, but - while it works fine for me - it may have major issues that I've not came across.\n\n# FAQ\n\n## What is this?\n\nThis is an OpenXR extension (API layer) that aims to make clicking cockpit controls as easy and intuitive as possible in DCS or MSFS with either:\n- A Quest 2/Quest Pro's built in hand tracking\n- A PointCTRL\n- both!\n\nOn a Quest:\n\n- pinch index finger to thumb for 'left click'\n- pinch middle finger to thumb for 'right click'\n- pinch ring finger to thumb for 'scroll up'\n- pinch little finger to thumb for 'scroll down'\n\n## How does this compare to OpenXR controller emulation?\n\nWhile this does emulate a controller, it doesn't try to make your hand *act like* a controller; it instead does whatever it takes to make the 'point and click' aspect as good as possible by specializing in DCS and MSFS.\n\nIf you have a Quest, HTCC takes advantage of Oculus-specific extensions to get more reliable gesture recognition.\n\nHTCC  **only** works with DCS and MSFS.\n\n## I have a PointCTRL already, why would I want this?\n\n- it works in MSFS\n- if you have a Quest or ultraleap, you can use them for tracking but the FCUs for clicking (this can be better or worse, depending on your lighting)\n- it works in DCS's menus and at the bottom of the screen\n\n## I have a leap motion or Pimax Hand Tracker, can I use this?\n\nYou can use them for pointing, but you'll need a PointCTRL or other joystick-like device to click the buttons. Take a look at docs/settings.md for configuring.\n\n## I have an HP Reverb G2, can I use this?\n\nSorry, the G2 doesn't have the sensors required. You can't use this without a PointCTRL, or both a leap motion and an additional button box.",
+      "downloadSize": 22433792,
+      "name": "HTCC v0.1.0 - initial alpha",
+      "publishedAt": "2022-12-11T19:23:00Z",
+      "version": "0.1.0",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.0/HTCC-v0.1.0.msi",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      }
+    }
+  ]
+}

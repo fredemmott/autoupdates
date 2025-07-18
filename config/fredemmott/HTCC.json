@@ -1,0 +1,16 @@
+{
+  "productName": "HTCC",
+  "shared": {
+    "runAsTemporaryCopy": false,
+    "detectionMethod": "FileVersion",
+    "detection": {
+      "input": "{{regval(view, hive, key, value)}}/HTCCSettings.exe",
+      "data": {
+        "view": "WOW64_64KEY",
+        "hive": "HKLM",
+        "key": "SOFTWARE\\Fred Emmott\\HandTrackedCockpitClicking",
+        "value": "InstallDir"
+      }
+    }
+  }
+}
