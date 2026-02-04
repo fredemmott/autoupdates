@@ -2,174 +2,187 @@
   "instance": {},
   "releases": [
     {
+      "version": "1.6.0",
+      "publishedAt": "2026-02-03T22:41:24Z",
+      "zipExtractFileDispositionOverrides": {
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
+      },
+      "summary": "HTCC continues to support DCS and MSFS 2020; support for MSFS 2024 is not included, however some users have had success and shared their settings [on Discord](https://go.fredemmott.com/discord).\n\n- ✨ Added 'grab and move to scroll' option - thanks to  @haoxv !\n- 🔒 Settings app no longer automatically runs as admin; it will ask for admin when settings are changed",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.6.0/HTCC-v1.6.0.msi",
+      "name": "v1.6.0",
+      "downloadSize": 29937664
+    },
+    {
       "version": "1.4.2",
       "publishedAt": "2025-09-10T14:29:47Z",
-      "name": "v1.4.2: unblock eye tracking, ultraleap debugging",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.4.2/HTCC-v1.4.2.msi",
       "summary": "HTCC continues to support DCS and MSFS 2020; support for MSFS 2024 is not included, however some users have had success and shared their settings [on Discord](https://go.fredemmott.com/discord).\n\n- 🪟 Hard limit on minimum Windows version increased to Windows 10 \"Creators Update\", a.k.a 1703/\"Redstone 2\"\n  - HTCC still only aims to support consumer versions of Windows that are still supported by Microsoft; this only changes the enforced limit, not the 'supported versions'\n  - ⬆️ Updated other software components that HTCC re-uses; this brought the newer minimum version requirement\n- 🐛 `XR_EXT_eye_gaze_interaction` is no longer blocked by HTCC. This does not affect any software that is documented as 'supported' by HTCC, but improves compatibility with some unsupported configurations\n- 🔊 Settings app now indicates if the Ultraleap API layer is disabled by an environment variable\n  - if an Ultraleap environment variable is not set on your system, it is likely set by the OpenXR runtime; contact your headset manufacturer for support.",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.4.2/HTCC-v1.4.2.msi",
+      "name": "v1.4.2: unblock eye tracking, ultraleap debugging",
       "downloadSize": 29863936
     },
     {
       "version": "1.4.0",
       "publishedAt": "2025-07-24T20:35:18Z",
-      "name": "v1.4.0",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.4.0/HTCC-v1.4.0.msi",
       "summary": "HTCC continues to support DCS and MSFS 2020; support for MSFS 2024 is not included, however some users have had success and shared their settings [on Discord](https://go.fredemmott.com/discord).\n\n# Improved compatibility and reliability\n\n- improved compatibility with SteamVR; earlier versions of HTCC are only usable with the current SteamVR beta\n- improved Oculus Touch controller emulation\n- removed options to force the use of hand tracking OpenXR extensions; HTCC will now *always* attempt to use them, and handle `XR_ERROR_EXTENSION_NOT_PRESENT`\n- updated [device compatibility documentation](https://htcc.fredemmott.com/hardware/)\n\nAdditionally, the \"PointCtrl Classic\" application has been removed; this was only for use with DCS, before DCS natively supported OpenXR. As DCS has natively supported OpenXR for several years, I am no longer supporting or including this tool. PointCtrl devices remain supported by HTCC.\n\n# Settings App\n\n- Added basic report on OpenXR usability\n- Added option to fix incompatible Ultraleap layer configurations\n- Added option to enable/disable the suspend/hibernate gesture\n- Now updates when settings are changed in external applications - for example, when the current OpenXR\n- Moved settings that are generally a bad idea to new *Unsupported Settings* section\n- Completely rewritten, to move away from a framework I do not consider sustainable or fast to work with.\n\n\n<img width=\"663\" height=\"1462\" alt=\"image\" src=\"https://github.com/user-attachments/assets/1336fd46-674e-4212-9432-ecd9e0969ba6\" />",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.4.0/HTCC-v1.4.0.msi",
+      "name": "v1.4.0",
       "downloadSize": 29855744
     },
     {
       "version": "1.3.6",
       "publishedAt": "2025-07-18T17:44:06Z",
-      "name": "v1.3.6: SteamVR compatibility, rewriting settings app",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.3.6/HTCC-v1.3.6.msi",
       "summary": "HTCC continues to support DCS and MSFS 2020; support for MSFS 2024 is not included, however some users have had success and shared their settings [on Discord](https://go.fredemmott.com/discord).\n\n# Changes from v1.3.4\n\n- Work around SteamVR bug which allows initializing OpenXR with `XR_FB_hand_tracking_aim`, even though SteamVR does not implement the extension\n  - hand tracking is now supported on SteamVR when SteamVR itself supports hand tracking for that headset, e.g. when using the Steam Link app on a Quest series headset\n  - SteamVR *does not* support gesture recognition; if you are using SteamVR's implementation of OpenXR hand tracking, you will also need a PointCTRL, SlugMouse, or similar device\n- Rewrote the settings app again :) back to the modern Windows feel, but now using [FUI](https://github.com/fredemmott/fui) instead of WinUI3 or Dear ImGui\n\n# Changes from v1.2 (stable)\n\n- improved conformance and reliability, especially for Oculus Touch controller emulation\n- removed no-longer-relevant workaround options to force use of hand tracking OpenXR extensions; HTCC will now *always* attempt to enable them, and handle `XR_ERROR_EXTENSION_NOT_PRESENT`\n\n",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.3.6/HTCC-v1.3.6.msi",
+      "name": "v1.3.6: SteamVR compatibility, rewriting settings app",
       "downloadSize": 29884416
     },
     {
       "version": "1.3.4",
       "publishedAt": "2024-11-30T12:58:03Z",
-      "name": "Release v1.3.4 - improved conformance and reliability, rewritten settings app",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.3.4/HTCC-v1.3.4.msi",
       "summary": "# Changes from v1.3.2\n\nRemoved accidental settings app dependency on DirectX debug layers (part of the Windows SDK)\n\n# Changes from v1.2\n\n- improved conformance and reliability, especially for Oculus Touch controller emulation\n- removed no-longer-relevant workaround options to force use of hand tracking OpenXR extensions; HTCC will now *always* attempt to enable them, and handle `XR_ERROR_EXTENSION_NOT_PRESENT`\n- rewrote settings app; while this is a visual downgrade, I don't consider the previous UI framework to be a viable long-term option\n\nHTCC continues to support DCS and MSFS 2020; support for MSFS 2024 is not included, however some users have had success and shared their settings [on Discord](https://htcc.fredemmott.com).",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.3.4/HTCC-v1.3.4.msi",
+      "name": "Release v1.3.4 - improved conformance and reliability, rewritten settings app",
       "downloadSize": 3129344
     },
     {
       "version": "1.3.2",
       "publishedAt": "2024-11-26T16:57:53Z",
-      "name": "v1.3.2 - improved conformance and reliability, rewritten settings app",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.3.2/HTCC-v1.3.2.msi",
       "summary": "- improved conformance and reliability, especially for Oculus Touch controller emulation\n- removed no-longer-relevant workaround options to force use of hand tracking OpenXR extensions; HTCC will now *always* attempt to enable them, and handle `XR_ERROR_EXTENSION_NOT_PRESENT`\n- rewrote settings app; while this is a visual downgrade, I don't consider the previous UI framework to be a viable long-term option\n\nHTCC continues to support DCS and MSFS 2020; support for MSFS 2024 is not included, however some users have had success and shared their settings [on Discord](https://htcc.fredemmott.com).",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.3.2/HTCC-v1.3.2.msi",
+      "name": "v1.3.2 - improved conformance and reliability, rewritten settings app",
       "downloadSize": 3129344
     },
     {
       "version": "1.2.0",
       "publishedAt": "2024-07-27T22:38:11Z",
-      "name": "v1.2.0: meta PTC workaround, small enhancements",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.2.0/HTCC-v1.2.0.msi",
       "summary": "- added workaround for bug in Meta Link's public test channel (PTC) which would prevent HTCC from detecting that OpenXR hand tracking is available\n- added option to disable hibernate gesture\n- added registry settings adding support for custom 4-button ring devices",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.2.0/HTCC-v1.2.0.msi",
+      "name": "v1.2.0: meta PTC workaround, small enhancements",
       "downloadSize": 24174592
     },
     {
       "version": "1.0.0",
       "publishedAt": "2023-11-13T15:25:32Z",
-      "name": "v1.0.0 - bug fixes, sleep/wake, and ultraleap improvements",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.0.0/HTCC-v1.0.0.msi",
       "summary": "",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.0.0/HTCC-v1.0.0.msi",
+      "name": "v1.0.0 - bug fixes, sleep/wake, and ultraleap improvements",
       "downloadSize": 22568960
     },
     {
       "version": "1.0-beta.2",
       "publishedAt": "2023-10-26T23:24:13Z",
-      "name": "Release v1.0-beta2",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.0-beta2/HTCC-v1.0-beta2.msi",
       "summary": "- the hibernate gesture now requires that your hand be higher than your head, *as well* as at near the top of your field of view. This helps avoid accidental activations when looking down with a hand on a throttle or stick\n- if HTCC is enabled, OpenXR Hand Tracking is no longer passed through to the game or other OpenXR API layers. This fixes some weird interactions in DCS v2.9\n- fix rare crash when closing the game\n",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.0-beta2/HTCC-v1.0-beta2.msi",
+      "name": "Release v1.0-beta2",
       "downloadSize": 22564864
     },
     {
       "version": "1.0-beta.1",
       "publishedAt": "2023-10-20T18:41:55Z",
-      "name": "v1.0-beta1: bugfixes, sleep/wake, and ultraleap improvements",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.0-beta1/HTCC-v1.0-beta1.msi",
       "summary": "",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v1.0-beta1/HTCC-v1.0-beta1.msi",
+      "name": "v1.0-beta1: bugfixes, sleep/wake, and ultraleap improvements",
       "downloadSize": 22564864
     },
     {
       "version": "0.2.2",
       "publishedAt": "2023-06-28T14:58:26Z",
-      "name": "v0.2.2: updated FOV calculations for DCS OpenBeta update",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.2/HTCC-v0.2.2.msi",
       "summary": "",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.2/HTCC-v0.2.2.msi",
+      "name": "v0.2.2: updated FOV calculations for DCS OpenBeta update",
       "downloadSize": 22786048
     },
     {
       "version": "0.2.1",
       "publishedAt": "2023-02-08T12:56:41Z",
-      "name": "v0.2.1: controller emulation support for DCS native OpenXR",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.1/HTCC-v0.2.1.msi",
       "summary": "# Fixed\n\nController emulation now works in DCS when running in native OpenXR mode. Virtual touch screen mode remains recommended.\n\n# Known problems\n\nController aim angles are wrong in DCS when running in native OpenXR mode. This is a DCS bug that has been reported to Eagle Dynamics, and also applies to real controllers.",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.1/HTCC-v0.2.1.msi",
+      "name": "v0.2.1: controller emulation support for DCS native OpenXR",
       "downloadSize": 22781952
     },
     {
       "version": "0.2.0",
       "publishedAt": "2023-01-08T14:24:13Z",
-      "name": "v0.2.0: improved touch screen/tablet mode, 'PointCTRL Classic', scroll speed",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.0/HTCC-v0.2.0.msi",
       "summary": "# Upgrade Notes\n\n- I now recommend tablet/touch screen mode for DCS instead of VR controller mode, to avoid the risk of accidental clicks, especially with switches near a throttle.\n- If you use an Ultraleap, you may need to uninstall and reinstall the Ultraleap driver after installing HTCC\n\nOptional, but recommended:\n\n1. If you have changed settings in regedit, export them (right click -> export in regedit) to a .reg file for reference\n2. Uninstall the old version via add/remove programs\n3. Open regedit and delete everything in `HKEY_LOCAL_MACHINE\\SOFTWARE\\Fred Emmott\\HandTrackedCockpitClicking`\n4. Install the new version\n\n# Changes\n\n- fixed field of view/window calibration for touch screen/tablet mode in DCS\n- increased scroll screed in touch screen/tablet mode\n- added 'HTCC PointCTRL Classic' program: while this is running, a PointCTRL will work like a tablet in DCS, even if OpenComposite isn't being used. This will not work in other games, or with OpenXR hand tracking, and is not needed if you're using OpenComposite. You'll need to run v0.2's PointCTRL calibration app first.\n- virtual controller grip is no longer continuously squeezed in MSFS\n- removed unneeded 'mirror eye' option\n- added registry setting to only track one hand\n- the calibration and settings apps only save modified settings, not all settings",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.2.0/HTCC-v0.2.0.msi",
+      "name": "v0.2.0: improved touch screen/tablet mode, 'PointCTRL Classic', scroll speed",
       "downloadSize": 22753280
     },
     {
       "version": "0.1.2",
       "publishedAt": "2023-01-01T18:18:19Z",
-      "name": "v0.1.2: installer improvements for ultraleap",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.2/HTCC-v0.1.2.msi",
       "summary": "This release:\n- makes the installer consistently make sure that HTCC and the ultraleap OpenXR support are loaded in the correct order\n- adds `scripts\\list-openxr-layers.ps1` (a debugging tool)",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.2/HTCC-v0.1.2.msi",
+      "name": "v0.1.2: installer improvements for ultraleap",
       "downloadSize": 22437888
     },
     {
       "version": "0.1.1",
       "publishedAt": "2022-12-31T19:57:49Z",
-      "name": "v0.1.1: ultraleap compatibility improvements, various tweaks and bugfixes",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.1/HTCC-v0.1.1.msi",
       "summary": "- fix compatibility issue with the combination of Ultraleap + WMR, possibly Ultraleap + other headsets too\n- fix hand tracking being unusable for 10s of seconds if the runtime guesses the next frame may be 10s of seconds away (e.g. during DCS loading screens)\n- hand position is now world-locked if it's out of sensor range, but a button is being pressed\n- now takes priority over any VR controllers\n- PointCTRL is now considered inactive if it is *completely* still (out of sensor range, or FCU timeout)\n- vertical offset is removed for DCS",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.1/HTCC-v0.1.1.msi",
+      "name": "v0.1.1: ultraleap compatibility improvements, various tweaks and bugfixes",
       "downloadSize": 22437888
     },
     {
       "version": "0.1.0",
       "publishedAt": "2022-12-11T19:23:00Z",
-      "name": "HTCC v0.1.0 - initial alpha",
       "zipExtractFileDispositionOverrides": {
-        "fredemmott_htcc_Updater.exe": "CreateIfAbsent"
+        "fredemmott_HTCC_Updater.exe": "CreateIfAbsent"
       },
-      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.0/HTCC-v0.1.0.msi",
       "summary": "# Notes\n\n- You **must** use OpenComposite, even on an Oculus headset\n- Be careful not to accidentally 'touch' controls - just point at them. If this is a problem, switch to 'virtual touchscreen' mode and use a mouse for menus.\n- This is very new. Feedback is welcome, but - while it works fine for me - it may have major issues that I've not came across.\n\n# FAQ\n\n## What is this?\n\nThis is an OpenXR extension (API layer) that aims to make clicking cockpit controls as easy and intuitive as possible in DCS or MSFS with either:\n- A Quest 2/Quest Pro's built in hand tracking\n- A PointCTRL\n- both!\n\nOn a Quest:\n\n- pinch index finger to thumb for 'left click'\n- pinch middle finger to thumb for 'right click'\n- pinch ring finger to thumb for 'scroll up'\n- pinch little finger to thumb for 'scroll down'\n\n## How does this compare to OpenXR controller emulation?\n\nWhile this does emulate a controller, it doesn't try to make your hand *act like* a controller; it instead does whatever it takes to make the 'point and click' aspect as good as possible by specializing in DCS and MSFS.\n\nIf you have a Quest, HTCC takes advantage of Oculus-specific extensions to get more reliable gesture recognition.\n\nHTCC  **only** works with DCS and MSFS.\n\n## I have a PointCTRL already, why would I want this?\n\n- it works in MSFS\n- if you have a Quest or ultraleap, you can use them for tracking but the FCUs for clicking (this can be better or worse, depending on your lighting)\n- it works in DCS's menus and at the bottom of the screen\n\n## I have a leap motion or Pimax Hand Tracker, can I use this?\n\nYou can use them for pointing, but you'll need a PointCTRL or other joystick-like device to click the buttons. Take a look at docs/settings.md for configuring.\n\n## I have an HP Reverb G2, can I use this?\n\nSorry, the G2 doesn't have the sensors required. You can't use this without a PointCTRL, or both a leap motion and an additional button box.",
+      "downloadUrl": "https://github.com/fredemmott/HTCC/releases/download/v0.1.0/HTCC-v0.1.0.msi",
+      "name": "HTCC v0.1.0 - initial alpha",
       "downloadSize": 22433792
     }
   ],
   "shared": {
+    "detectionMethod": "FileVersion",
     "productName": "HTCC",
     "windowTitle": "HTCC Update",
+    "runAsTemporaryCopy": false,
     "detection": {
       "input": "{{regval(view, hive, key, value)}}/HTCCSettings.exe",
       "data": {
@@ -178,8 +191,6 @@
         "key": "SOFTWARE\\Fred Emmott\\HandTrackedCockpitClicking",
         "value": "InstallDir"
       }
-    },
-    "detectionMethod": "FileVersion",
-    "runAsTemporaryCopy": false
+    }
   }
 }
