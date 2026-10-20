@@ -2,17 +2,17 @@
   "instance": {
     "emergencyUrl": "https://github.com/fredemmott/XRFrameTools/releases/latest"
   },
-  "shared": {
-    "detectionMethod": "FixedVersion",
-    "detection": {
-      "version": "0.0.0"
-    }
-  },
   "releases": [
     {
-      "name": "Placeholder release",
+      "version": "0.0.0+aaaDONOTINSTALL.0",
       "summary": "This release does not exist; it is included in this metadata to prevent 'no releases found' errors.",
-      "version": "0.0.0+aaaDONOTINSTALL.0"
+      "name": "Placeholder release"
     }
-  ]
+  ],
+  "shared": {
+    "detection": {
+      "version": "0.0.0"
+    },
+    "detectionMethod": "FixedVersion"
+  }
 }
